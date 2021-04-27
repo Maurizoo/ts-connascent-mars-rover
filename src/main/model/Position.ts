@@ -38,13 +38,13 @@ export class Position {
     moveForward() {
         var coordinate: Coordinate = new Coordinate(0, 0);
         let s = this.direction.enumValue();
-        if (s === "NORTH") {
+        if (s === Direction.NORTH().enumValue()) {
             coordinate = this.coordinate.moveNorth()
-        } else if (s === "EAST") {
+        } else if (s === Direction.EAST().enumValue()) {
             coordinate = this.coordinate.moveEast()
-        } else if (s === "SOUTH") {
+        } else if (s === Direction.SOUTH().enumValue()) {
             coordinate = this.coordinate.moveSouth()
-        } else if (s === "WEST") {
+        } else if (s === Direction.WEST().enumValue()) {
             coordinate = this.coordinate.moveWest();
         }
         return new Position(coordinate.x, coordinate.y, this.direction.toString());
