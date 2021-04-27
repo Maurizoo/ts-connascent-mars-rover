@@ -2,24 +2,14 @@ import {Coordinate} from "./Coordinate";
 import {Direction} from "./Direction";
 import {format} from "util";
 import deepEqual = require("deep-equal");
+import { CommandInterpreter } from '../app/CommandInterpreter';
 
 export class Position {
     private coordinate: Coordinate;
     private direction: Direction;
 
     private parseDirection(directionText: string): Direction {
-        switch (directionText) {
-            case "N":
-                return Direction.NORTH()
-            case "E":
-                return Direction.EAST()
-            case "S":
-                return Direction.SOUTH()
-            case "W":
-                return Direction.WEST()
-            default:
-                return Direction.NORTH()
-        }
+        return Direction.getDirection(directionText)
     }
 
     constructor(x: number, y: number, directionText: string) {

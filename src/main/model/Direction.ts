@@ -16,6 +16,13 @@ export class Direction {
         [3, new Direction(3)]
     ])
 
+    static letterToDirection: Map<string, Direction> = new Map([
+        ['N', Direction.NORTH()],
+        ['E', Direction.EAST()],
+        ['S', Direction.SOUTH()],
+        ['W', Direction.WEST()]
+    ]);
+
 
     constructor(value: number) {
         this.value = value;
@@ -57,5 +64,10 @@ export class Direction {
 
     static WEST(): Direction {
         return Direction.valueOf(DirectionEnum.WEST);
+    }
+
+    static getDirection(coordinate: string): Direction {
+        const mappedCoordinate = <Direction>this.letterToDirection.get(coordinate);
+        return mappedCoordinate ? mappedCoordinate : Direction.NORTH()
     }
 }
